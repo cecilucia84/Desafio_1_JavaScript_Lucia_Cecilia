@@ -54,7 +54,7 @@ function consultarPrecios() {
     }
   } else {
     console.warn("🚫Selección inválida. Ingresa un número del 1 al 6❗");
-    alert ("🚫Selección inválida. Ingresa un número del 1 al 6❗" )
+    alert("🚫Selección inválida. Ingresa un número del 1 al 6❗")
   }
 }
 
@@ -62,17 +62,29 @@ function calcularCuotas() {
   if (costoServicio > 0) {
     console.log("💵 Financiación en cuotas con un interés adicional del 66%:");
     let cuotas = parseInt(prompt("Ingresa la cantidad de cuotas (2-12) para calcular el pago de tu espacio de sombra 👇"));
+
     if (cuotas >= 2 && cuotas <= 12) {
+      let valorCuota = (costoServicio * (1 + interesAdicional)) / cuotas;
+
       for (let i = 1; i <= cuotas; i++) {
-        const valorCuota = (costoServicio * (1 + interesAdicional)) / cuotas;
-        console.log("Pagas cuota " + i + " de : " + "  $  " + valorCuota.toFixed(2));
+        console.log("Pagas cuota " + i + " de: $" + valorCuota.toFixed(2));
       }
+
+      let totalCuotas = cuotas * valorCuota;
+      console.log("Total de cuotas a pagar: $" + totalCuotas.toFixed(2));
       console.log("Se aceptan pagos con todas las tarjetas de crédito 💳");
     } else {
       console.warn("🚫 Cantidad de cuotas no válida. Debes ingresar un número entre 2 y 12.");
-      alert("🚫 Cantidad de cuotas no válida. Debes ingresar un número entre 2 y 12." )
+      alert("🚫 Cantidad de cuotas no válida. Debes ingresar un número entre 2 y 12.");
     }
   }
 }
+
+
+
+
+
+
+
 // Inicia el proceso
 consultarPrecios();
