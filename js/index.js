@@ -81,10 +81,5 @@ function calcularCuotas() {
 }
 
 
-
-
-
-
-
 // Inicia el proceso
 consultarPrecios();
